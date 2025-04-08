@@ -7,12 +7,11 @@ type MarkdownData<T extends object> = {
   url: string;
 };
 
-
 /**
  * This function processes the content of a directory and returns an array of processed content.
  * It takes a content type, a function to process the content, and an optional directory.
  * If no directory is provided, it defaults to the current working directory.
- * 
+ *
  * @param contentType the type of content to process
  * @param processFn the function to process the content
  * @param dir the directory to process the content from
@@ -62,7 +61,9 @@ export const processContentInDir = async <T extends object, K>(
 export const getShortDescription = (content: string, maxLength = 20) => {
   const splitByWord = content.split(" ");
   const length = splitByWord.length;
-  return length > maxLength ? splitByWord.slice(0, maxLength).join(" ") + "..." : content;
+  return length > maxLength
+    ? splitByWord.slice(0, maxLength).join(" ") + "..."
+    : content;
 };
 
 /**
